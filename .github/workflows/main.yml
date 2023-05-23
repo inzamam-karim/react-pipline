@@ -32,4 +32,6 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             cd /var/www/inzamam-react
+            echo "executing yarn command"
+            echo  yarn && yarn build
             
