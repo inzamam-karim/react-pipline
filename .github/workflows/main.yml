@@ -33,5 +33,11 @@ jobs:
           script: |
             cd /var/www/inzamam-react
             echo "executing yarn command"
-            echo  yarn && yarn build
+            yarn install && yarn build
+            pm2 start yarn --name  reacttmp -- preview
+            pm2 stop react
+            pm2 delete react
+            pm2 start yarn --name  react -- preview
+            pm2 stop reacttmp
+            pm2 delete reacttmp
             
